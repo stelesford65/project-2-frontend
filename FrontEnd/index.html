@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript" src="node_modules/axios/dist/axios.js"></script>
+    <link rel ="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shawn Telesford</title>
+    <script>
+        $(document).ready(function(){
+            $("#div1").fadeIn(2000);
+            $("#div2").fadeIn(2000);
+          });
+
+          $(function() {
+           $(".toggle").on("click", function(){
+           if($(".item").hasClass("active")){
+               $(".item").removeClass("active");
+           }
+           else{
+            $(".item").addClass("active");
+           }
+        
+        })   
+        });
+        </script>
+</head>
+<body>
+    <div class="flexbox">
+        <div class="title">
+            <p class="shawn">Pilot Life</p>
+        </div>
+        <div>
+                <nav>
+                    <ul class="menu">
+                    <li class="item"><a style="color:  rgb(19, 66, 141); font-size: 45px; font-family: Impact, Charcoal, sans-serif; font-weight: 1500;
+                        text-shadow: 1px 0 black; border-radius: 12px; background-color: rgb(0, 0, 0); width: 100%; font-weight: 800; text-decoration: none;"href="#">Home</a></li>
+                    <li class="item"><a style="text-decoration: none;   font-family: Impact, Charcoal, sans-serif;" href="#">Settings</a></li>
+                    <li class="toggle"><span class="bars"></span></li>
+                    </ul>
+                </nav>
+</div>
+</div>
+<div id="app">
+    <textarea v-model="src"></textarea>
+  </div>
+
+  <script type="text/javascript">
+    new Vue({
+      el: '#app',
+      data: {
+          src: ''
+      },
+      mounted(){
+        var vm = this
+        axios.get('http://localhost:3000/api')
+          .then(data => {
+            vm.src = JSON.stringify(data.data)
+          })
+      }
+    })
+  </script>
+</body>
+</html>
+

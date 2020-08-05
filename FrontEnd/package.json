@@ -1,0 +1,17 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "page3js.js",
+  "scripts": {
+    "mkdir": "dist &&",
+    "cp": "index.html dist/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "vue": "^2.6.11"
+  }
+}
