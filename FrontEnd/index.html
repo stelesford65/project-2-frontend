@@ -1,6 +1,12 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="node_modules/vue/dist/vue.js"></script>
     <script type="text/javascript" src="node_modules/axios/dist/axios.js"></script>
@@ -8,7 +14,16 @@
     <script type="text/javascript" src="app.js" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shawn Telesford</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>  
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <title>Pilot Posts</title>
    
 </head>
 <body>
@@ -21,16 +36,16 @@
                     <ul class="menu">
                     <li class="item"><a style="color:  rgb(19, 66, 141); font-size: 45px; font-family: Impact, Charcoal, sans-serif; font-weight: 1500;
                         text-shadow: 1px 0 black; border-radius: 12px; background-color: rgb(0, 0, 0); width: 100%; font-weight: 800; text-decoration: none;"href="#">Home</a></li>
-                    <li class="item"><a style="text-decoration: none;   font-family: Impact, Charcoal, sans-serif;" href="#">Settings</a></li>
+                    <li class="item"><a style="color: white; font-size: 45px; font-family: Impact, Charcoal, sans-serif; font-weight: 1500;
+                        text-shadow: 1px 0 black; border-radius: 12px;  width: 100%; font-weight: 800; text-decoration: none;"href="#">Log In</a></li>
                     <li class="toggle"><span class="bars"></span></li>
                     </ul>
                 </nav>
-
-                <div id="photos">
-                    
-                </div>
-</div>
+        </div>
+            <div>
+                <button>New Post</button>
+                <div id="photos"></div>
+            </div>
 </div>
 </body>
 </html>
-
