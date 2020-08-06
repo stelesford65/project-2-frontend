@@ -5,27 +5,11 @@
     <script type="text/javascript" src="node_modules/vue/dist/vue.js"></script>
     <script type="text/javascript" src="node_modules/axios/dist/axios.js"></script>
     <link rel ="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="app.js" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shawn Telesford</title>
-    <script>
-        $(document).ready(function(){
-            $("#div1").fadeIn(2000);
-            $("#div2").fadeIn(2000);
-          });
-
-          $(function() {
-           $(".toggle").on("click", function(){
-           if($(".item").hasClass("active")){
-               $(".item").removeClass("active");
-           }
-           else{
-            $(".item").addClass("active");
-           }
-        
-        })   
-        });
-        </script>
+   
 </head>
 <body>
     <div class="flexbox">
@@ -41,27 +25,12 @@
                     <li class="toggle"><span class="bars"></span></li>
                     </ul>
                 </nav>
-</div>
-</div>
-<div id="app">
-    <textarea v-model="src"></textarea>
-  </div>
 
-  <script type="text/javascript">
-    new Vue({
-      el: '#app',
-      data: {
-          src: ''
-      },
-      mounted(){
-        var vm = this
-        axios.get('http://localhost:3000/api')
-          .then(data => {
-            vm.src = JSON.stringify(data.data)
-          })
-      }
-    })
-  </script>
+                <div id="photos">
+                    
+                </div>
+</div>
+</div>
 </body>
 </html>
 
