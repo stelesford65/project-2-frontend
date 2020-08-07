@@ -13,8 +13,9 @@ const deletePost = async(event) =>{
     }
 
 const addComment = async(event) =>{ //Function for adding a comment
-    console.log(event.target.id);
-    const text = $(`input#${event.target.id}`).val()//Getting the value of the text of a comment
+   event.preventDefault()
+    console.log(event.target);
+    const text = $(`#comment-${event.target.id}`).val()//Getting the value of the text of a comment
     console.log(text)
     const body = {
         "post_id":event.target.id, 
@@ -92,12 +93,14 @@ result.forEach(element => {
     updateDiv.append($('<button>').text("Update Post").attr("id",element._id).click(updatePost))
     newDiv.append(updateDiv)
 
-    newDiv.append($('<input>').text("").attr("id",element._id))//Leave blank so that we can pull text from there and add it to the endpoint where we'll make make the post request
+    newDiv.append($('<input>').attr("id",`comment-${element._id}`))//Leave blank so that we can pull text from there and add it to the endpoint where we'll make make the post request
     newDiv.append($('<button>').text("Change").click(()=>updateDiv.toggle()))
     newDiv.append($('<button>').text("Delete").attr("id",element._id).click(deletePost))
     newDiv.append($('<h3>').text(""));
     newDiv.append($('<button>').text("Send").attr("id",element._id).click(addComment))
+   
     const commentDiv = $("<div>")
+    console.log(element.comments)
     element.comments.forEach(comment=> {
         console.log(comment)
         commentDiv.append($("<p>").text(comment.text))
