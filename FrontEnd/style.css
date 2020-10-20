@@ -215,7 +215,7 @@
     color: #ff3300;
     }*/
     
-    @media only screen and (max-width: 600px) {     
+    @media only screen and (max-width: 1300px) {     
         .flexbox{
         float: none;
         width: 100%;
@@ -388,7 +388,7 @@
             }
         
             /* Tablet Menu */
-            @media all and (min-width:468px){
+            @media all and (max-width:468px){
                .menu{
                 justify-content: center;
                }
