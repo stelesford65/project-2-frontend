@@ -3,15 +3,15 @@
 //const { update } = require("../../project-2-backend/models/pilot");
 
 const URL = "https://pilotlife.herokuapp.com/" 
-
+//DELETE
 const deletePost = async(event) =>{
-    console.log(event.target.id);
+    console.log(event.target.id);//FOr debugging
     const result = await fetch(URL + "pilot/"+event.target.id, 
     {method:"delete"}).then(res => res.json())
     console.log(result)
     getPilots()
     }
-
+//ADDING COMMENTS
 const addComment = async(event) =>{ //Function for adding a comment
    event.preventDefault()
     console.log(event.target);
@@ -36,6 +36,7 @@ const addComment = async(event) =>{ //Function for adding a comment
     getPilots()
 }
 //--------------------------
+//CREATE
 const createPost =  async() =>{
 const body = {
   "post": $("#image-url").val(),
@@ -52,7 +53,7 @@ const body = {
    console.log(result)
    getPilots()
 }
-
+//CREATE
 $("#submit").click(createPost)
 const updatePost = async(event) =>{
 console.log(event.target.id)
@@ -66,7 +67,7 @@ const body = {
    headers:{
        "Content-Type":"application/json"
    }, 
-   body: JSON.stringify(body)
+   body: JSON.stringify(body)//Convert object to string
    
    }).then(res => res.json())
    console.log(result)
@@ -83,26 +84,26 @@ const getPilots = async()=>{ //Reading on async
 result.forEach(element => {
    
     //Div, append text to that specific image within the div
-    const newDiv = $("<div>").addClass("post");
-    newDiv.append($('<img>').attr("src",element.post)); 
-    newDiv.append($('<p>').text(element.caption));
-    
+    const newDiv = $("<div>").addClass("post");//Created newDiv to append HTML elements to it
+    newDiv.append($('<img>').attr("src",element.post)); //Image
+    newDiv.append($('<p>').text(element.caption));//Caption
+    //UPDATE
     const updateDiv = $('<div>').addClass("update").css("display","none")
-    updateDiv.append($('<input>').attr("id",`image-url-${element._id}`).val(element.post))
-    updateDiv.append($('<input>').attr("id",`desc-${element._id}`).val(element.caption))
+    updateDiv.append($('<input>').attr("id",`image-url-${element._id}`).val(element.post))//You can now change the image URL
+    updateDiv.append($('<input>').attr("id",`desc-${element._id}`).val(element.caption))//You can now edit the caption
     updateDiv.append($('<button>').text("Update Post").attr("id",element._id).click(updatePost))
     newDiv.append(updateDiv)
 
     newDiv.append($('<input>').attr("id",`comment-${element._id}`))//Leave blank so that we can pull text from there and add it to the endpoint where we'll make make the post request
-    newDiv.append($('<button>').text("Change").click(()=>updateDiv.toggle()))
-    newDiv.append($('<button>').text("Delete").attr("id",element._id).click(deletePost))
+    newDiv.append($('<button>').text("Change").click(()=>updateDiv.toggle()))//.toggle() fixed the update issue
+    newDiv.append($('<button>').text("Delete").attr("id",element._id).click(deletePost))//Delete a post
     newDiv.append($('<h3>').text(""));
-    newDiv.append($('<button>').text("Send").attr("id",element._id).click(addComment))
+    newDiv.append($('<button>').text("Send").attr("id",element._id).click(addComment))//Add a comment
    
     const commentDiv = $("<div>")
-    console.log(element.comments)
+    console.log(element.comments)//Debugging
     element.comments.forEach(comment=> {
-        console.log(comment)
+        console.log(comment)//Debugging
         commentDiv.append($("<p>").text(comment.text))
     })
     newDiv.append(commentDiv)
@@ -135,3 +136,13 @@ fetch(url, { method: 'POST', headers: headers, body: data})
 
 getPilots()
 
+/*
+Post MVP
+-Delete/Edit comments
+-Allow users to report innapropriate behavior
+-Fully functional log-in
+-Allow millions of comments to fit in one little text box under each post
+-Create a Logo
+-Add more styling
+-Bootstrap
+*/

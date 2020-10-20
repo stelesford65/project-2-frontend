@@ -119,7 +119,7 @@
     }
     
     body{
-    background-image: url('images/sky.jpg');
+    background-color: white;
     background-repeat: no-repeat; 
     background-attachment: fixed;
     }
